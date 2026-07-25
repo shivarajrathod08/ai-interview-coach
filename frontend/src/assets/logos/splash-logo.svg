@@ -1,0 +1,21 @@
+<svg width="320" height="200" viewBox="0 0 320 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="splashGrad" x1="0" y1="0" x2="320" y2="200" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#4F6BFF"/>
+      <stop offset="1" stop-color="#8B5CF6"/>
+    </linearGradient>
+  </defs>
+  <rect width="320" height="200" fill="#0B1120"/>
+  <circle cx="60" cy="30" r="90" fill="url(#splashGrad)" fill-opacity="0.18"/>
+  <circle cx="280" cy="180" r="110" fill="url(#splashGrad)" fill-opacity="0.14"/>
+  <g transform="translate(132,54)">
+    <rect x="2" y="2" width="56" height="56" rx="18" fill="url(#splashGrad)"/>
+    <circle cx="30" cy="30" r="7" fill="none" stroke="#FFFFFF" stroke-width="2.25"/>
+    <line x1="30" y1="13" x2="30" y2="18" stroke="#FFFFFF" stroke-width="2.25" stroke-linecap="round"/>
+    <line x1="30" y1="42" x2="30" y2="47" stroke="#FFFFFF" stroke-width="2.25" stroke-linecap="round"/>
+    <line x1="13" y1="30" x2="18" y2="30" stroke="#FFFFFF" stroke-width="2.25" stroke-linecap="round"/>
+    <line x1="42" y1="30" x2="47" y2="30" stroke="#FFFFFF" stroke-width="2.25" stroke-linecap="round"/>
+  </g>
+  <text x="160" y="148" text-anchor="middle" font-family="'Space Grotesk', 'Segoe UI', sans-serif" font-size="20" font-weight="700" fill="#FFFFFF">Interview Coach AI</text>
+  <text x="160" y="170" text-anchor="middle" font-family="'Inter', 'Segoe UI', sans-serif" font-size="12" letter-spacing="1.5" fill="#94A3B8">PRACTICE. IMPROVE. GET HIRED.</text>
+</svg>
