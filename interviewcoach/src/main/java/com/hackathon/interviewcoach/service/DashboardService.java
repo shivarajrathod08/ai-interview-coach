@@ -1,127 +1,82 @@
 package com.hackathon.interviewcoach.service;
 
-import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.hackathon.interviewcoach.exception.BadRequestException;
+import com.hackathon.interviewcoach.dto.response.DashboardResponse;
+import com.hackathon.interviewcoach.entity.InterviewSession;
+import com.hackathon.interviewcoach.entity.User;
+import com.hackathon.interviewcoach.exception.ResourceNotFoundException;
+import com.hackathon.interviewcoach.repository.InterviewSessionRepository;
+import com.hackathon.interviewcoach.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Value;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
-import org.springframework.web.reactive.function.client.WebClient;
+import org.springframework.transaction.annotation.Transactional;
 
-import java.util.ArrayList;
-import java.util.HashMap;
+import java.time.format.DateTimeFormatter;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
+import java.util.stream.Collectors;
 
 @Service
-@Slf4j
 @RequiredArgsConstructor
-public class GeminiService {
+public class DashboardService {
 
-    private final WebClient geminiWebClient;
-    private final ObjectMapper objectMapper = new ObjectMapper();
+    private final InterviewSessionRepository sessionRepository;
+    private final UserRepository userRepository;
 
-    @Value("${app.gemini.api-key}")
-    private String apiKey;
+    @Transactional(readOnly = true)
+    public DashboardResponse getDashboard() {
+        User user = getCurrentUser();
+        List<InterviewSession> sessions = sessionRepository.findByUserOrderByCreatedAtDesc(user);
 
-    public List<String> generateQuestions(String prompt, int expectedCount) {
-        String rawText = callGemini(prompt);
-        String jsonArray = extractJson(rawText, '[', ']');
+        long totalInterviews = sessions.size();
 
-        try {
-            List<String> questions = new ArrayList<>();
-            JsonNode node = objectMapper.readTree(jsonArray);
-            if (node.isArray()) {
-                node.forEach(q -> questions.add(q.asText()));
-            }
-            if (questions.isEmpty()) {
-                throw new BadRequestException("Gemini returned no questions");
-            }
-            return questions;
-        } catch (Exception e) {
-            log.error("Failed to parse Gemini question generation response: {}", rawText, e);
-            throw new BadRequestException("Failed to generate interview questions. Please try again.");
-        }
+        List<InterviewSession> completedSessions = sessions.stream()
+                .filter(s -> s.getStatus() == InterviewSession.SessionStatus.COMPLETED)
+                .collect(Collectors.toList());
+
+        long completedInterviews = completedSessions.size();
+
+        double averageScore = completedSessions.stream()
+                .filter(s -> s.getOverallScore() != null)
+                .mapToDouble(InterviewSession::getOverallScore)
+                .average()
+                .orElse(0.0);
+
+        Map<String, Double> averageScoreByJobRole = completedSessions.stream()
+                .filter(s -> s.getOverallScore() != null)
+                .collect(Collectors.groupingBy(
+                        InterviewSession::getJobRole,
+                        LinkedHashMap::new,
+                        Collectors.averagingDouble(InterviewSession::getOverallScore)));
+
+        DateTimeFormatter formatter = DateTimeFormatter.ISO_LOCAL_DATE_TIME;
+
+        List<DashboardResponse.ScoreTrendPoint> scoreTrend = completedSessions.stream()
+                .filter(s -> s.getOverallScore() != null)
+                .sorted((a, b) -> a.getCreatedAt().compareTo(b.getCreatedAt()))
+                .map(s -> DashboardResponse.ScoreTrendPoint.builder()
+                        .sessionId(s.getId())
+                        .jobRole(s.getJobRole())
+                        .score(s.getOverallScore())
+                        .createdAt(s.getCreatedAt().format(formatter))
+                        .build())
+                .collect(Collectors.toList());
+
+        return DashboardResponse.builder()
+                .totalInterviews(totalInterviews)
+                .completedInterviews(completedInterviews)
+                .averageScore(averageScore)
+                .averageScoreByJobRole(averageScoreByJobRole)
+                .scoreTrend(scoreTrend)
+                .build();
     }
 
-    public EvaluationResult evaluateAnswer(String prompt) {
-        String rawText = callGemini(prompt);
-        String jsonObject = extractJson(rawText, '{', '}');
-
-        try {
-            JsonNode node = objectMapper.readTree(jsonObject);
-            double score = node.path("score").asDouble(0);
-            String strengths = node.path("strengths").asText("");
-            String weaknesses = node.path("weaknesses").asText("");
-            String topicsToRevise = node.path("topicsToRevise").asText("");
-            String feedback = node.path("feedback").asText("");
-            return new EvaluationResult(score, strengths, weaknesses, topicsToRevise, feedback);
-        } catch (Exception e) {
-            log.error("Failed to parse Gemini evaluation response: {}", rawText, e);
-            throw new BadRequestException("Failed to evaluate answer. Please try again.");
-        }
-    }
-
-    private String callGemini(String prompt) {
-        if (apiKey == null || apiKey.isBlank()) {
-            throw new BadRequestException("Gemini API key is not configured");
-        }
-
-        Map<String, Object> part = new HashMap<>();
-        part.put("text", prompt);
-
-        Map<String, Object> content = new HashMap<>();
-        content.put("parts", List.of(part));
-
-        Map<String, Object> requestBody = new HashMap<>();
-        requestBody.put("contents", List.of(content));
-
-        try {
-            JsonNode response = geminiWebClient.post()
-                    .uri(uriBuilder -> uriBuilder.queryParam("key", apiKey).build())
-                    .bodyValue(requestBody)
-                    .retrieve()
-                    .bodyToMono(JsonNode.class)
-                    .block();
-
-            if (response == null) {
-                throw new BadRequestException("Empty response from Gemini API");
-            }
-
-            return response
-                    .path("candidates").path(0)
-                    .path("content").path("parts").path(0)
-                    .path("text").asText();
-        } catch (BadRequestException e) {
-            throw e;
-        } catch (Exception e) {
-            log.error("Error calling Gemini API", e);
-            throw new BadRequestException("Failed to communicate with Gemini AI service");
-        }
-    }
-
-    private String extractJson(String text, char openChar, char closeChar) {
-        if (text == null) {
-            throw new BadRequestException("Empty response from AI service");
-        }
-        int start = text.indexOf(openChar);
-        int end = text.lastIndexOf(closeChar);
-        if (start == -1 || end == -1 || end < start) {
-            Pattern pattern = Pattern.compile(Pattern.quote(String.valueOf(openChar)) + ".*"
-                    + Pattern.quote(String.valueOf(closeChar)), Pattern.DOTALL);
-            Matcher matcher = pattern.matcher(text);
-            if (matcher.find()) {
-                return matcher.group();
-            }
-            throw new BadRequestException("Could not parse AI service response");
-        }
-        return text.substring(start, end + 1);
-    }
-
-    public record EvaluationResult(double score, String strengths, String weaknesses,
-                                    String topicsToRevise, String feedback) {
+    private User getCurrentUser() {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        String email = authentication.getName();
+        return userRepository.findByEmail(email)
+                .orElseThrow(() -> new ResourceNotFoundException("User", "email", email));
     }
 }
