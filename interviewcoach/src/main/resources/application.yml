@@ -7,9 +7,9 @@ spring:
   application:
     name: interviewcoach
   datasource:
-    url: ${DB_URL:jdbc:postgresql://localhost:5432/interviewcoach}
-    username: ${DB_USERNAME:postgres}
-    password: ${DB_PASSWORD:postgres}
+    url: jdbc:postgresql://localhost:5432/interviewcoach
+    username: postgres
+    password: xxxxxxx
     driver-class-name: org.postgresql.Driver
   jpa:
     hibernate:
@@ -18,7 +18,6 @@ spring:
     properties:
       hibernate:
         format_sql: true
-        dialect: org.hibernate.dialect.PostgreSQLDialect
     open-in-view: false
 
 app:
@@ -26,9 +25,8 @@ app:
     secret: ${JWT_SECRET:c2VjcmV0LWtleS1mb3ItaW50ZXJ2aWV3LWNvYWNoLWFwcC1jaGFuZ2UtaW4tcHJvZHVjdGlvbi1wbGVhc2U=}
     expiration-ms: ${JWT_EXPIRATION_MS:86400000}
   gemini:
-    api-key: ${GEMINI_API_KEY:}
-    api-url: ${GEMINI_API_URL:https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent}
-
+    api-key: API_KEY
+    api-url: https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent
 springdoc:
   api-docs:
     path: /v3/api-docs

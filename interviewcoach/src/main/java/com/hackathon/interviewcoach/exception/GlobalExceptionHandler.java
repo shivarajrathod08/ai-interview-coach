@@ -64,9 +64,18 @@ public class GlobalExceptionHandler {
     }
 
     @ExceptionHandler(Exception.class)
-    public ResponseEntity<ApiErrorResponse> handleGeneral(Exception ex, HttpServletRequest request) {
-        return buildResponse(HttpStatus.INTERNAL_SERVER_ERROR, "An unexpected error occurred", request, null);
-    }
+public ResponseEntity<ApiErrorResponse> handleGeneral(Exception ex,
+                                                      HttpServletRequest request) {
+
+    ex.printStackTrace();   // <-- prints the full error in the terminal
+
+    return buildResponse(
+            HttpStatus.INTERNAL_SERVER_ERROR,
+            ex.getMessage(),   // <-- shows the actual message in Swagger
+            request,
+            null
+    );
+}
 
     private ResponseEntity<ApiErrorResponse> buildResponse(HttpStatus status, String message,
                                                              HttpServletRequest request, List<String> details) {
