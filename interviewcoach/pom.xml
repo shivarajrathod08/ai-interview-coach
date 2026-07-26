@@ -29,7 +29,6 @@
     </properties>
 
 
-
     <dependencies>
 
 
@@ -76,14 +75,13 @@
         </dependency>
 
 
-
-        <!-- Lombok -->
+        <!-- Lombok FIX -->
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
-            <optional>true</optional>
+            <version>1.18.36</version>
+            <scope>provided</scope>
         </dependency>
-
 
 
         <!-- JWT API -->
@@ -112,14 +110,12 @@
         </dependency>
 
 
-
         <!-- Swagger OpenAPI Documentation -->
         <dependency>
             <groupId>org.springdoc</groupId>
             <artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
             <version>2.8.8</version>
         </dependency>
-
 
 
         <!-- Spring Boot Actuator -->
@@ -129,14 +125,12 @@
         </dependency>
 
 
-
         <!-- Configuration Metadata Support -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-configuration-processor</artifactId>
             <optional>true</optional>
         </dependency>
-
 
 
         <!-- Testing -->
@@ -158,7 +152,6 @@
     </dependencies>
 
 
-
     <build>
 
         <plugins>
@@ -171,14 +164,23 @@
             </plugin>
 
 
-
-            <!-- Java Compiler -->
+            <!-- Java Compiler + Lombok Annotation Processor FIX -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.13.0</version>
 
                 <configuration>
                     <release>21</release>
+
+                    <annotationProcessorPaths>
+                        <path>
+                            <groupId>org.projectlombok</groupId>
+                            <artifactId>lombok</artifactId>
+                            <version>1.18.36</version>
+                        </path>
+                    </annotationProcessorPaths>
+
                 </configuration>
 
             </plugin>
