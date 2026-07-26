@@ -1,16 +1,11 @@
-// AI Interview Coach — Asset Index
-// Auto-generated barrel file. Every asset in src/assets is exported here.
-// SVGs are imported as URL strings (Vite default) — use as <img src={AssetName} />
-// or inline them as components with vite-plugin-svgr if you prefer JSX icons.
-
-// ---- animations ----
+// animations
 import AnimationsAiThinkingAnimation from "./animations/ai-thinking-animation.svg";
 import AnimationsLoadingSpinner from "./animations/loading-spinner.svg";
 import AnimationsPulseAnimation from "./animations/pulse-animation.svg";
 import AnimationsSuccessAnimation from "./animations/success-animation.svg";
 import AnimationsTypingIndicator from "./animations/typing-indicator.svg";
 
-// ---- avatars ----
+// avatars
 import AvatarsAiAssistant from "./avatars/ai-assistant.svg";
 import AvatarsFemale from "./avatars/female.svg";
 import AvatarsGuest from "./avatars/guest.svg";
@@ -18,7 +13,7 @@ import AvatarsMale from "./avatars/male.svg";
 import AvatarsNeutral from "./avatars/neutral.svg";
 import AvatarsRecruiter from "./avatars/recruiter.svg";
 
-// ---- backgrounds ----
+// backgrounds
 import BackgroundsAbstractAiPatterns from "./backgrounds/abstract-ai-patterns.svg";
 import BackgroundsAuthBackground from "./backgrounds/auth-background.svg";
 import BackgroundsDashboardBackground from "./backgrounds/dashboard-background.svg";
@@ -27,88 +22,112 @@ import BackgroundsHeroBackground from "./backgrounds/hero-background.svg";
 import BackgroundsInterviewBackground from "./backgrounds/interview-background.svg";
 import BackgroundsSummaryBackground from "./backgrounds/summary-background.svg";
 
-// ---- icons ----
-import IconsAuthEmail from "./icons/auth/email.svg";
-import IconsAuthEyeOff from "./icons/auth/eye-off.svg";
-import IconsAuthEye from "./icons/auth/eye.svg";
-import IconsAuthLock from "./icons/auth/lock.svg";
-import IconsAuthLogin from "./icons/auth/login.svg";
-import IconsAuthLogout from "./icons/auth/logout.svg";
-import IconsAuthPassword from "./icons/auth/password.svg";
-import IconsAuthProfile from "./icons/auth/profile.svg";
-import IconsAuthRegister from "./icons/auth/register.svg";
-import IconsAuthUnlock from "./icons/auth/unlock.svg";
-import IconsAuthUser from "./icons/auth/user.svg";
-import IconsDashboardBook from "./icons/dashboard/book.svg";
-import IconsDashboardCalendar from "./icons/dashboard/calendar.svg";
-import IconsDashboardChart from "./icons/dashboard/chart.svg";
-import IconsDashboardFire from "./icons/dashboard/fire.svg";
-import IconsDashboardGraph from "./icons/dashboard/graph.svg";
-import IconsDashboardGrowth from "./icons/dashboard/growth.svg";
-import IconsDashboardMedal from "./icons/dashboard/medal.svg";
-import IconsDashboardPerformance from "./icons/dashboard/performance.svg";
-import IconsDashboardPieChart from "./icons/dashboard/pie-chart.svg";
-import IconsDashboardProgress from "./icons/dashboard/progress.svg";
-import IconsDashboardSchedule from "./icons/dashboard/schedule.svg";
-import IconsDashboardStar from "./icons/dashboard/star.svg";
-import IconsDashboardStatistics from "./icons/dashboard/statistics.svg";
-import IconsDashboardTarget from "./icons/dashboard/target.svg";
-import IconsDashboardTrophy from "./icons/dashboard/trophy.svg";
-import IconsInterviewAi from "./icons/interview/ai.svg";
-import IconsInterviewAnswer from "./icons/interview/answer.svg";
-import IconsInterviewBrain from "./icons/interview/brain.svg";
-import IconsInterviewCamera from "./icons/interview/camera.svg";
-import IconsInterviewClock from "./icons/interview/clock.svg";
-import IconsInterviewCoding from "./icons/interview/coding.svg";
-import IconsInterviewCompleted from "./icons/interview/completed.svg";
-import IconsInterviewFailed from "./icons/interview/failed.svg";
-import IconsInterviewFeedback from "./icons/interview/feedback.svg";
-import IconsInterviewMicrophone from "./icons/interview/microphone.svg";
-import IconsInterviewNext from "./icons/interview/next.svg";
-import IconsInterviewPause from "./icons/interview/pause.svg";
-import IconsInterviewPending from "./icons/interview/pending.svg";
-import IconsInterviewPlay from "./icons/interview/play.svg";
-import IconsInterviewPrevious from "./icons/interview/previous.svg";
-import IconsInterviewQuestion from "./icons/interview/question.svg";
-import IconsInterviewResume from "./icons/interview/resume.svg";
-import IconsInterviewRetry from "./icons/interview/retry.svg";
-import IconsInterviewScore from "./icons/interview/score.svg";
-import IconsInterviewStop from "./icons/interview/stop.svg";
-import IconsInterviewSubmit from "./icons/interview/submit.svg";
-import IconsInterviewSuccess from "./icons/interview/success.svg";
-import IconsInterviewTimer from "./icons/interview/timer.svg";
-import IconsNavigationAnalytics from "./icons/navigation/analytics.svg";
-import IconsNavigationBack from "./icons/navigation/back.svg";
-import IconsNavigationClose from "./icons/navigation/close.svg";
-import IconsNavigationDashboard from "./icons/navigation/dashboard.svg";
-import IconsNavigationFilter from "./icons/navigation/filter.svg";
-import IconsNavigationForward from "./icons/navigation/forward.svg";
-import IconsNavigationHistory from "./icons/navigation/history.svg";
-import IconsNavigationHome from "./icons/navigation/home.svg";
-import IconsNavigationInterview from "./icons/navigation/interview.svg";
-import IconsNavigationMenu from "./icons/navigation/menu.svg";
-import IconsNavigationNotifications from "./icons/navigation/notifications.svg";
-import IconsNavigationReports from "./icons/navigation/reports.svg";
-import IconsNavigationSearch from "./icons/navigation/search.svg";
-import IconsNavigationSettings from "./icons/navigation/settings.svg";
-import IconsSystemAttachment from "./icons/system/attachment.svg";
-import IconsSystemDelete from "./icons/system/delete.svg";
-import IconsSystemDownload from "./icons/system/download.svg";
-import IconsSystemEdit from "./icons/system/edit.svg";
-import IconsSystemError from "./icons/system/error.svg";
-import IconsSystemFile from "./icons/system/file.svg";
-import IconsSystemFolder from "./icons/system/folder.svg";
-import IconsSystemInformation from "./icons/system/information.svg";
-import IconsSystemLink from "./icons/system/link.svg";
-import IconsSystemLoading from "./icons/system/loading.svg";
-import IconsSystemRefresh from "./icons/system/refresh.svg";
-import IconsSystemSave from "./icons/system/save.svg";
-import IconsSystemShare from "./icons/system/share.svg";
-import IconsSystemSync from "./icons/system/sync.svg";
-import IconsSystemUpload from "./icons/system/upload.svg";
-import IconsSystemWarning from "./icons/system/warning.svg";
+// icons
+import IconsActivity from "./icons/activity.svg";
+import IconsAdd from "./icons/add.svg";
+import IconsAi from "./icons/ai.svg";
+import IconsAnalytics from "./icons/analytics.svg";
+import IconsAnswer from "./icons/answer.svg";
+import IconsAttachment from "./icons/attachment.svg";
+import IconsBack from "./icons/back.svg";
+import IconsBarChart from "./icons/bar-chart.svg";
+import IconsBook from "./icons/book.svg";
+import IconsBookmark from "./icons/bookmark.svg";
+import IconsBrain from "./icons/brain.svg";
+import IconsCalendar from "./icons/calendar.svg";
+import IconsCameraOff from "./icons/camera-off.svg";
+import IconsCamera from "./icons/camera.svg";
+import IconsCertificate from "./icons/certificate.svg";
+import IconsChart from "./icons/chart.svg";
+import IconsCheckCircle from "./icons/check-circle.svg";
+import IconsCheck from "./icons/check.svg";
+import IconsChevronDown from "./icons/chevron-down.svg";
+import IconsChevronLeft from "./icons/chevron-left.svg";
+import IconsChevronRight from "./icons/chevron-right.svg";
+import IconsChevronUp from "./icons/chevron-up.svg";
+import IconsClipboard from "./icons/clipboard.svg";
+import IconsClock from "./icons/clock.svg";
+import IconsClose from "./icons/close.svg";
+import IconsCoding from "./icons/coding.svg";
+import IconsCompleted from "./icons/completed.svg";
+import IconsCopy from "./icons/copy.svg";
+import IconsDashboard from "./icons/dashboard.svg";
+import IconsDelete from "./icons/delete.svg";
+import IconsDownload from "./icons/download.svg";
+import IconsEdit from "./icons/edit.svg";
+import IconsEmail from "./icons/email.svg";
+import IconsError from "./icons/error.svg";
+import IconsEyeOff from "./icons/eye-off.svg";
+import IconsEye from "./icons/eye.svg";
+import IconsFailed from "./icons/failed.svg";
+import IconsFeedback from "./icons/feedback.svg";
+import IconsFile from "./icons/file.svg";
+import IconsFilter from "./icons/filter.svg";
+import IconsFingerprint from "./icons/fingerprint.svg";
+import IconsFire from "./icons/fire.svg";
+import IconsFolder from "./icons/folder.svg";
+import IconsForward from "./icons/forward.svg";
+import IconsGrowth from "./icons/growth.svg";
+import IconsHelp from "./icons/help.svg";
+import IconsHistory from "./icons/history.svg";
+import IconsHome from "./icons/home.svg";
+import IconsInfo from "./icons/info.svg";
+import IconsInterview from "./icons/interview.svg";
+import IconsKey from "./icons/key.svg";
+import IconsLineChart from "./icons/line-chart.svg";
+import IconsLink from "./icons/link.svg";
+import IconsLoading from "./icons/loading.svg";
+import IconsLock from "./icons/lock.svg";
+import IconsLogin from "./icons/login.svg";
+import IconsLogout from "./icons/logout.svg";
+import IconsMedal from "./icons/medal.svg";
+import IconsMenu from "./icons/menu.svg";
+import IconsMicrophoneOff from "./icons/microphone-off.svg";
+import IconsMicrophone from "./icons/microphone.svg";
+import IconsMoreHorizontal from "./icons/more-horizontal.svg";
+import IconsMoreVertical from "./icons/more-vertical.svg";
+import IconsNext from "./icons/next.svg";
+import IconsNotifications from "./icons/notifications.svg";
+import IconsPassword from "./icons/password.svg";
+import IconsPause from "./icons/pause.svg";
+import IconsPending from "./icons/pending.svg";
+import IconsPerformance from "./icons/performance.svg";
+import IconsPieChart from "./icons/pie-chart.svg";
+import IconsPlay from "./icons/play.svg";
+import IconsPrevious from "./icons/previous.svg";
+import IconsProfile from "./icons/profile.svg";
+import IconsProgress from "./icons/progress.svg";
+import IconsQuestion from "./icons/question.svg";
+import IconsRefresh from "./icons/refresh.svg";
+import IconsRegister from "./icons/register.svg";
+import IconsRemove from "./icons/remove.svg";
+import IconsReports from "./icons/reports.svg";
+import IconsResume from "./icons/resume.svg";
+import IconsRetry from "./icons/retry.svg";
+import IconsSave from "./icons/save.svg";
+import IconsSchedule from "./icons/schedule.svg";
+import IconsScore from "./icons/score.svg";
+import IconsSearch from "./icons/search.svg";
+import IconsSettings from "./icons/settings.svg";
+import IconsShare from "./icons/share.svg";
+import IconsShield from "./icons/shield.svg";
+import IconsStar from "./icons/star.svg";
+import IconsStatistics from "./icons/statistics.svg";
+import IconsStop from "./icons/stop.svg";
+import IconsSubmit from "./icons/submit.svg";
+import IconsSuccess from "./icons/success.svg";
+import IconsSync from "./icons/sync.svg";
+import IconsTarget from "./icons/target.svg";
+import IconsTimer from "./icons/timer.svg";
+import IconsTrophy from "./icons/trophy.svg";
+import IconsUnlock from "./icons/unlock.svg";
+import IconsUpload from "./icons/upload.svg";
+import IconsUser from "./icons/user.svg";
+import IconsVerified from "./icons/verified.svg";
+import IconsWarning from "./icons/warning.svg";
+import IconsXCircle from "./icons/x-circle.svg";
 
-// ---- illustrations ----
+// illustrations
 import Illustrations404 from "./illustrations/404.svg";
 import Illustrations500 from "./illustrations/500.svg";
 import IllustrationsAccessDenied from "./illustrations/access-denied.svg";
@@ -129,14 +148,14 @@ import IllustrationsServerOffline from "./illustrations/server-offline.svg";
 import IllustrationsSuccess from "./illustrations/success.svg";
 import IllustrationsWelcome from "./illustrations/welcome.svg";
 
-// ---- images ----
+// images
 import ImagesAnalyticsThumbnail from "./images/analytics-thumbnail.svg";
 import ImagesCompanyLogoPlaceholder from "./images/company-logo-placeholder.svg";
 import ImagesInterviewThumbnail from "./images/interview-thumbnail.svg";
 import ImagesProfilePlaceholder from "./images/profile-placeholder.svg";
 import ImagesResumePlaceholder from "./images/resume-placeholder.svg";
 
-// ---- logos ----
+// logos
 import LogosDarkLogo from "./logos/dark-logo.svg";
 import LogosFavicon from "./logos/favicon.svg";
 import LogosIconLogo from "./logos/icon-logo.svg";
@@ -145,264 +164,317 @@ import LogosLoadingLogo from "./logos/loading-logo.svg";
 import LogosPrimaryLogo from "./logos/primary-logo.svg";
 import LogosSplashLogo from "./logos/splash-logo.svg";
 
+
 export {
-  AnimationsAiThinkingAnimation,
-  AnimationsLoadingSpinner,
-  AnimationsPulseAnimation,
-  AnimationsSuccessAnimation,
-  AnimationsTypingIndicator,
-  AvatarsAiAssistant,
-  AvatarsFemale,
-  AvatarsGuest,
-  AvatarsMale,
-  AvatarsNeutral,
-  AvatarsRecruiter,
-  BackgroundsAbstractAiPatterns,
-  BackgroundsAuthBackground,
-  BackgroundsDashboardBackground,
-  BackgroundsGradientShapes,
-  BackgroundsHeroBackground,
-  BackgroundsInterviewBackground,
-  BackgroundsSummaryBackground,
-  IconsAuthEmail,
-  IconsAuthEyeOff,
-  IconsAuthEye,
-  IconsAuthLock,
-  IconsAuthLogin,
-  IconsAuthLogout,
-  IconsAuthPassword,
-  IconsAuthProfile,
-  IconsAuthRegister,
-  IconsAuthUnlock,
-  IconsAuthUser,
-  IconsDashboardBook,
-  IconsDashboardCalendar,
-  IconsDashboardChart,
-  IconsDashboardFire,
-  IconsDashboardGraph,
-  IconsDashboardGrowth,
-  IconsDashboardMedal,
-  IconsDashboardPerformance,
-  IconsDashboardPieChart,
-  IconsDashboardProgress,
-  IconsDashboardSchedule,
-  IconsDashboardStar,
-  IconsDashboardStatistics,
-  IconsDashboardTarget,
-  IconsDashboardTrophy,
-  IconsInterviewAi,
-  IconsInterviewAnswer,
-  IconsInterviewBrain,
-  IconsInterviewCamera,
-  IconsInterviewClock,
-  IconsInterviewCoding,
-  IconsInterviewCompleted,
-  IconsInterviewFailed,
-  IconsInterviewFeedback,
-  IconsInterviewMicrophone,
-  IconsInterviewNext,
-  IconsInterviewPause,
-  IconsInterviewPending,
-  IconsInterviewPlay,
-  IconsInterviewPrevious,
-  IconsInterviewQuestion,
-  IconsInterviewResume,
-  IconsInterviewRetry,
-  IconsInterviewScore,
-  IconsInterviewStop,
-  IconsInterviewSubmit,
-  IconsInterviewSuccess,
-  IconsInterviewTimer,
-  IconsNavigationAnalytics,
-  IconsNavigationBack,
-  IconsNavigationClose,
-  IconsNavigationDashboard,
-  IconsNavigationFilter,
-  IconsNavigationForward,
-  IconsNavigationHistory,
-  IconsNavigationHome,
-  IconsNavigationInterview,
-  IconsNavigationMenu,
-  IconsNavigationNotifications,
-  IconsNavigationReports,
-  IconsNavigationSearch,
-  IconsNavigationSettings,
-  IconsSystemAttachment,
-  IconsSystemDelete,
-  IconsSystemDownload,
-  IconsSystemEdit,
-  IconsSystemError,
-  IconsSystemFile,
-  IconsSystemFolder,
-  IconsSystemInformation,
-  IconsSystemLink,
-  IconsSystemLoading,
-  IconsSystemRefresh,
-  IconsSystemSave,
-  IconsSystemShare,
-  IconsSystemSync,
-  IconsSystemUpload,
-  IconsSystemWarning,
-  Illustrations404,
-  Illustrations500,
-  IllustrationsAccessDenied,
-  IllustrationsAiAssistant,
-  IllustrationsDashboardHero,
-  IllustrationsEmptyInterviewList,
-  IllustrationsError,
-  IllustrationsInterviewComplete,
-  IllustrationsInterviewSession,
-  IllustrationsInterviewSummary,
-  IllustrationsLoading,
-  IllustrationsLogin,
-  IllustrationsMaintenance,
-  IllustrationsNoData,
-  IllustrationsRegister,
-  IllustrationsSearchEmpty,
-  IllustrationsServerOffline,
-  IllustrationsSuccess,
-  IllustrationsWelcome,
-  ImagesAnalyticsThumbnail,
-  ImagesCompanyLogoPlaceholder,
-  ImagesInterviewThumbnail,
-  ImagesProfilePlaceholder,
-  ImagesResumePlaceholder,
-  LogosDarkLogo,
-  LogosFavicon,
-  LogosIconLogo,
-  LogosLightLogo,
-  LogosLoadingLogo,
-  LogosPrimaryLogo,
-  LogosSplashLogo,
+
+    AnimationsAiThinkingAnimation,
+    AnimationsLoadingSpinner,
+    AnimationsPulseAnimation,
+    AnimationsSuccessAnimation,
+    AnimationsTypingIndicator,
+    AvatarsAiAssistant,
+    AvatarsFemale,
+    AvatarsGuest,
+    AvatarsMale,
+    AvatarsNeutral,
+    AvatarsRecruiter,
+    BackgroundsAbstractAiPatterns,
+    BackgroundsAuthBackground,
+    BackgroundsDashboardBackground,
+    BackgroundsGradientShapes,
+    BackgroundsHeroBackground,
+    BackgroundsInterviewBackground,
+    BackgroundsSummaryBackground,
+    IconsActivity,
+    IconsAdd,
+    IconsAi,
+    IconsAnalytics,
+    IconsAnswer,
+    IconsAttachment,
+    IconsBack,
+    IconsBarChart,
+    IconsBook,
+    IconsBookmark,
+    IconsBrain,
+    IconsCalendar,
+    IconsCameraOff,
+    IconsCamera,
+    IconsCertificate,
+    IconsChart,
+    IconsCheckCircle,
+    IconsCheck,
+    IconsChevronDown,
+    IconsChevronLeft,
+    IconsChevronRight,
+    IconsChevronUp,
+    IconsClipboard,
+    IconsClock,
+    IconsClose,
+    IconsCoding,
+    IconsCompleted,
+    IconsCopy,
+    IconsDashboard,
+    IconsDelete,
+    IconsDownload,
+    IconsEdit,
+    IconsEmail,
+    IconsError,
+    IconsEyeOff,
+    IconsEye,
+    IconsFailed,
+    IconsFeedback,
+    IconsFile,
+    IconsFilter,
+    IconsFingerprint,
+    IconsFire,
+    IconsFolder,
+    IconsForward,
+    IconsGrowth,
+    IconsHelp,
+    IconsHistory,
+    IconsHome,
+    IconsInfo,
+    IconsInterview,
+    IconsKey,
+    IconsLineChart,
+    IconsLink,
+    IconsLoading,
+    IconsLock,
+    IconsLogin,
+    IconsLogout,
+    IconsMedal,
+    IconsMenu,
+    IconsMicrophoneOff,
+    IconsMicrophone,
+    IconsMoreHorizontal,
+    IconsMoreVertical,
+    IconsNext,
+    IconsNotifications,
+    IconsPassword,
+    IconsPause,
+    IconsPending,
+    IconsPerformance,
+    IconsPieChart,
+    IconsPlay,
+    IconsPrevious,
+    IconsProfile,
+    IconsProgress,
+    IconsQuestion,
+    IconsRefresh,
+    IconsRegister,
+    IconsRemove,
+    IconsReports,
+    IconsResume,
+    IconsRetry,
+    IconsSave,
+    IconsSchedule,
+    IconsScore,
+    IconsSearch,
+    IconsSettings,
+    IconsShare,
+    IconsShield,
+    IconsStar,
+    IconsStatistics,
+    IconsStop,
+    IconsSubmit,
+    IconsSuccess,
+    IconsSync,
+    IconsTarget,
+    IconsTimer,
+    IconsTrophy,
+    IconsUnlock,
+    IconsUpload,
+    IconsUser,
+    IconsVerified,
+    IconsWarning,
+    IconsXCircle,
+    Illustrations404,
+    Illustrations500,
+    IllustrationsAccessDenied,
+    IllustrationsAiAssistant,
+    IllustrationsDashboardHero,
+    IllustrationsEmptyInterviewList,
+    IllustrationsError,
+    IllustrationsInterviewComplete,
+    IllustrationsInterviewSession,
+    IllustrationsInterviewSummary,
+    IllustrationsLoading,
+    IllustrationsLogin,
+    IllustrationsMaintenance,
+    IllustrationsNoData,
+    IllustrationsRegister,
+    IllustrationsSearchEmpty,
+    IllustrationsServerOffline,
+    IllustrationsSuccess,
+    IllustrationsWelcome,
+    ImagesAnalyticsThumbnail,
+    ImagesCompanyLogoPlaceholder,
+    ImagesInterviewThumbnail,
+    ImagesProfilePlaceholder,
+    ImagesResumePlaceholder,
+    LogosDarkLogo,
+    LogosFavicon,
+    LogosIconLogo,
+    LogosLightLogo,
+    LogosLoadingLogo,
+    LogosPrimaryLogo,
+    LogosSplashLogo
+
 };
 
 export default {
-  AnimationsAiThinkingAnimation,
-  AnimationsLoadingSpinner,
-  AnimationsPulseAnimation,
-  AnimationsSuccessAnimation,
-  AnimationsTypingIndicator,
-  AvatarsAiAssistant,
-  AvatarsFemale,
-  AvatarsGuest,
-  AvatarsMale,
-  AvatarsNeutral,
-  AvatarsRecruiter,
-  BackgroundsAbstractAiPatterns,
-  BackgroundsAuthBackground,
-  BackgroundsDashboardBackground,
-  BackgroundsGradientShapes,
-  BackgroundsHeroBackground,
-  BackgroundsInterviewBackground,
-  BackgroundsSummaryBackground,
-  IconsAuthEmail,
-  IconsAuthEyeOff,
-  IconsAuthEye,
-  IconsAuthLock,
-  IconsAuthLogin,
-  IconsAuthLogout,
-  IconsAuthPassword,
-  IconsAuthProfile,
-  IconsAuthRegister,
-  IconsAuthUnlock,
-  IconsAuthUser,
-  IconsDashboardBook,
-  IconsDashboardCalendar,
-  IconsDashboardChart,
-  IconsDashboardFire,
-  IconsDashboardGraph,
-  IconsDashboardGrowth,
-  IconsDashboardMedal,
-  IconsDashboardPerformance,
-  IconsDashboardPieChart,
-  IconsDashboardProgress,
-  IconsDashboardSchedule,
-  IconsDashboardStar,
-  IconsDashboardStatistics,
-  IconsDashboardTarget,
-  IconsDashboardTrophy,
-  IconsInterviewAi,
-  IconsInterviewAnswer,
-  IconsInterviewBrain,
-  IconsInterviewCamera,
-  IconsInterviewClock,
-  IconsInterviewCoding,
-  IconsInterviewCompleted,
-  IconsInterviewFailed,
-  IconsInterviewFeedback,
-  IconsInterviewMicrophone,
-  IconsInterviewNext,
-  IconsInterviewPause,
-  IconsInterviewPending,
-  IconsInterviewPlay,
-  IconsInterviewPrevious,
-  IconsInterviewQuestion,
-  IconsInterviewResume,
-  IconsInterviewRetry,
-  IconsInterviewScore,
-  IconsInterviewStop,
-  IconsInterviewSubmit,
-  IconsInterviewSuccess,
-  IconsInterviewTimer,
-  IconsNavigationAnalytics,
-  IconsNavigationBack,
-  IconsNavigationClose,
-  IconsNavigationDashboard,
-  IconsNavigationFilter,
-  IconsNavigationForward,
-  IconsNavigationHistory,
-  IconsNavigationHome,
-  IconsNavigationInterview,
-  IconsNavigationMenu,
-  IconsNavigationNotifications,
-  IconsNavigationReports,
-  IconsNavigationSearch,
-  IconsNavigationSettings,
-  IconsSystemAttachment,
-  IconsSystemDelete,
-  IconsSystemDownload,
-  IconsSystemEdit,
-  IconsSystemError,
-  IconsSystemFile,
-  IconsSystemFolder,
-  IconsSystemInformation,
-  IconsSystemLink,
-  IconsSystemLoading,
-  IconsSystemRefresh,
-  IconsSystemSave,
-  IconsSystemShare,
-  IconsSystemSync,
-  IconsSystemUpload,
-  IconsSystemWarning,
-  Illustrations404,
-  Illustrations500,
-  IllustrationsAccessDenied,
-  IllustrationsAiAssistant,
-  IllustrationsDashboardHero,
-  IllustrationsEmptyInterviewList,
-  IllustrationsError,
-  IllustrationsInterviewComplete,
-  IllustrationsInterviewSession,
-  IllustrationsInterviewSummary,
-  IllustrationsLoading,
-  IllustrationsLogin,
-  IllustrationsMaintenance,
-  IllustrationsNoData,
-  IllustrationsRegister,
-  IllustrationsSearchEmpty,
-  IllustrationsServerOffline,
-  IllustrationsSuccess,
-  IllustrationsWelcome,
-  ImagesAnalyticsThumbnail,
-  ImagesCompanyLogoPlaceholder,
-  ImagesInterviewThumbnail,
-  ImagesProfilePlaceholder,
-  ImagesResumePlaceholder,
-  LogosDarkLogo,
-  LogosFavicon,
-  LogosIconLogo,
-  LogosLightLogo,
-  LogosLoadingLogo,
-  LogosPrimaryLogo,
-  LogosSplashLogo,
+
+    AnimationsAiThinkingAnimation,
+    AnimationsLoadingSpinner,
+    AnimationsPulseAnimation,
+    AnimationsSuccessAnimation,
+    AnimationsTypingIndicator,
+    AvatarsAiAssistant,
+    AvatarsFemale,
+    AvatarsGuest,
+    AvatarsMale,
+    AvatarsNeutral,
+    AvatarsRecruiter,
+    BackgroundsAbstractAiPatterns,
+    BackgroundsAuthBackground,
+    BackgroundsDashboardBackground,
+    BackgroundsGradientShapes,
+    BackgroundsHeroBackground,
+    BackgroundsInterviewBackground,
+    BackgroundsSummaryBackground,
+    IconsActivity,
+    IconsAdd,
+    IconsAi,
+    IconsAnalytics,
+    IconsAnswer,
+    IconsAttachment,
+    IconsBack,
+    IconsBarChart,
+    IconsBook,
+    IconsBookmark,
+    IconsBrain,
+    IconsCalendar,
+    IconsCameraOff,
+    IconsCamera,
+    IconsCertificate,
+    IconsChart,
+    IconsCheckCircle,
+    IconsCheck,
+    IconsChevronDown,
+    IconsChevronLeft,
+    IconsChevronRight,
+    IconsChevronUp,
+    IconsClipboard,
+    IconsClock,
+    IconsClose,
+    IconsCoding,
+    IconsCompleted,
+    IconsCopy,
+    IconsDashboard,
+    IconsDelete,
+    IconsDownload,
+    IconsEdit,
+    IconsEmail,
+    IconsError,
+    IconsEyeOff,
+    IconsEye,
+    IconsFailed,
+    IconsFeedback,
+    IconsFile,
+    IconsFilter,
+    IconsFingerprint,
+    IconsFire,
+    IconsFolder,
+    IconsForward,
+    IconsGrowth,
+    IconsHelp,
+    IconsHistory,
+    IconsHome,
+    IconsInfo,
+    IconsInterview,
+    IconsKey,
+    IconsLineChart,
+    IconsLink,
+    IconsLoading,
+    IconsLock,
+    IconsLogin,
+    IconsLogout,
+    IconsMedal,
+    IconsMenu,
+    IconsMicrophoneOff,
+    IconsMicrophone,
+    IconsMoreHorizontal,
+    IconsMoreVertical,
+    IconsNext,
+    IconsNotifications,
+    IconsPassword,
+    IconsPause,
+    IconsPending,
+    IconsPerformance,
+    IconsPieChart,
+    IconsPlay,
+    IconsPrevious,
+    IconsProfile,
+    IconsProgress,
+    IconsQuestion,
+    IconsRefresh,
+    IconsRegister,
+    IconsRemove,
+    IconsReports,
+    IconsResume,
+    IconsRetry,
+    IconsSave,
+    IconsSchedule,
+    IconsScore,
+    IconsSearch,
+    IconsSettings,
+    IconsShare,
+    IconsShield,
+    IconsStar,
+    IconsStatistics,
+    IconsStop,
+    IconsSubmit,
+    IconsSuccess,
+    IconsSync,
+    IconsTarget,
+    IconsTimer,
+    IconsTrophy,
+    IconsUnlock,
+    IconsUpload,
+    IconsUser,
+    IconsVerified,
+    IconsWarning,
+    IconsXCircle,
+    Illustrations404,
+    Illustrations500,
+    IllustrationsAccessDenied,
+    IllustrationsAiAssistant,
+    IllustrationsDashboardHero,
+    IllustrationsEmptyInterviewList,
+    IllustrationsError,
+    IllustrationsInterviewComplete,
+    IllustrationsInterviewSession,
+    IllustrationsInterviewSummary,
+    IllustrationsLoading,
+    IllustrationsLogin,
+    IllustrationsMaintenance,
+    IllustrationsNoData,
+    IllustrationsRegister,
+    IllustrationsSearchEmpty,
+    IllustrationsServerOffline,
+    IllustrationsSuccess,
+    IllustrationsWelcome,
+    ImagesAnalyticsThumbnail,
+    ImagesCompanyLogoPlaceholder,
+    ImagesInterviewThumbnail,
+    ImagesProfilePlaceholder,
+    ImagesResumePlaceholder,
+    LogosDarkLogo,
+    LogosFavicon,
+    LogosIconLogo,
+    LogosLightLogo,
+    LogosLoadingLogo,
+    LogosPrimaryLogo,
+    LogosSplashLogo
+
 };

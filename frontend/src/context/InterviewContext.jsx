@@ -5,10 +5,13 @@ export const InterviewContext = createContext(null);
 export const InterviewProvider = ({ children }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [answers, setAnswers] = useState({});
-  const [startedAt] = useState(() => Date.now());
+  const [startedAt, setStartedAt] = useState(Date.now());
 
   const setAnswerForQuestion = useCallback((questionId, answerText) => {
-    setAnswers((prev) => ({ ...prev, [questionId]: answerText }));
+    setAnswers((prev) => ({
+      ...prev,
+      [questionId]: answerText,
+    }));
   }, []);
 
   const goToNextQuestion = useCallback((totalQuestions) => {
@@ -22,6 +25,7 @@ export const InterviewProvider = ({ children }) => {
   const resetSession = useCallback(() => {
     setCurrentIndex(0);
     setAnswers({});
+    setStartedAt(Date.now());
   }, []);
 
   const value = useMemo(
@@ -34,8 +38,22 @@ export const InterviewProvider = ({ children }) => {
       goToPreviousQuestion,
       resetSession,
     }),
-    [currentIndex, answers, startedAt, setAnswerForQuestion, goToNextQuestion, goToPreviousQuestion, resetSession]
+    [
+      currentIndex,
+      answers,
+      startedAt,
+      setAnswerForQuestion,
+      goToNextQuestion,
+      goToPreviousQuestion,
+      resetSession,
+    ]
   );
 
-  return <InterviewContext.Provider value={value}>{children}</InterviewContext.Provider>;
+  return (
+    <InterviewContext.Provider value={value}>
+      {children}
+    </InterviewContext.Provider>
+  );
 };
+
+export default InterviewProvider;

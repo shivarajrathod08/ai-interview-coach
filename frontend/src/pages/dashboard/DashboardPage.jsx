@@ -11,10 +11,16 @@ import {
 import { Card, Skeleton, EmptyState, Button } from "../../components/common";
 
 const DashboardPage = () => {
-  const { data, loading, error, refetch } = useFetch(dashboardApi.getDashboard, []);
+  const { data, loading, error, refetch } = useFetch(
+    dashboardApi.getDashboard,
+    []
+  );
 
   return (
-    <PageContainer title="Dashboard" description="Your interview prep, at a glance.">
+    <PageContainer
+      title="Dashboard"
+      description="Your interview preparation at a glance."
+    >
       <div className="flex flex-col gap-6">
         <WelcomeBanner />
 
@@ -22,7 +28,7 @@ const DashboardPage = () => {
           <EmptyState
             title="We couldn't load your dashboard"
             description={error.message}
-            action={<Button onClick={refetch}>Try again</Button>}
+            action={<Button onClick={refetch}>Try Again</Button>}
           />
         )}
 
@@ -37,10 +43,18 @@ const DashboardPage = () => {
         {!loading && !error && data && (
           <>
             <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
-              <StatsCard label="Total interviews" value={data.totalInterviews ?? 0} />
-              <StatsCard label="Completed" value={data.completedInterviews ?? 0} />
               <StatsCard
-                label="Average score"
+                label="Total Interviews"
+                value={data.totalInterviews ?? 0}
+              />
+
+              <StatsCard
+                label="Completed"
+                value={data.completedInterviews ?? 0}
+              />
+
+              <StatsCard
+                label="Average Score"
                 value={`${Math.round(data.averageScore ?? 0)}%`}
                 hint="Across completed interviews"
               />
@@ -50,20 +64,25 @@ const DashboardPage = () => {
               <div className="flex flex-col gap-6 lg:col-span-2">
                 <Card>
                   <h3 className="mb-4 font-display text-base font-semibold text-ink-light dark:text-ink-dark">
-                    Score trend
+                    Score Trend
                   </h3>
+
                   <PerformanceChart
-                    scores={(data.recentInterviews || [])
-                      .filter((item) => item.score !== undefined && item.score !== null)
-                      .map((item) => ({ label: item.title?.slice(0, 8) || "—", score: item.score }))}
+                    scores={(data.scoreTrend || []).map((item) => ({
+                      label: item.jobRole,
+                      score: item.score,
+                    }))}
                   />
                 </Card>
 
                 <div>
                   <h3 className="mb-4 font-display text-base font-semibold text-ink-light dark:text-ink-dark">
-                    Recent interviews
+                    Recent Interviews
                   </h3>
-                  <RecentInterviewsList interviews={data.recentInterviews || []} />
+
+                  <RecentInterviewsList
+                    interviews={data.scoreTrend || []}
+                  />
                 </div>
               </div>
 

@@ -4,78 +4,91 @@ import { formatScore } from "../../utils/formatters";
 const InterviewSummaryPanel = ({ summary }) => {
   if (!summary) return null;
 
-  const {
-    overallScore,
-    strengths = [],
-    improvementAreas = [],
-    questionFeedback = [],
-  } = summary;
-
   return (
     <div className="flex flex-col gap-6">
       <Card className="flex flex-col items-center gap-2 text-center">
-        <span className="text-sm text-slate-500 dark:text-slate-400">Overall score</span>
-        <span className="font-display text-5xl font-bold text-primary-500">
-          {formatScore(overallScore)}
+        <span className="text-sm text-slate-500 dark:text-slate-400">
+          Job Role
         </span>
+
+        <h2 className="font-display text-2xl font-bold text-ink-light dark:text-ink-dark">
+          {summary.jobRole}
+        </h2>
+
+        <span className="text-sm text-slate-500 dark:text-slate-400">
+          Overall Score
+        </span>
+
+        <span className="font-display text-5xl font-bold text-primary-500">
+          {formatScore(summary.overallScore)}
+        </span>
+
+        <Badge variant="progress">
+          {summary.status}
+        </Badge>
       </Card>
 
-      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-        <Card>
-          <h3 className="mb-3 font-display text-base font-semibold text-ink-light dark:text-ink-dark">
-            Strengths
-          </h3>
-          <ul className="flex flex-col gap-2">
-            {strengths.length > 0 ? (
-              strengths.map((item) => (
-                <li key={item} className="flex items-start gap-2 text-sm text-slate-600 dark:text-slate-300">
-                  <span className="mt-0.5 text-accent-success">✓</span>
-                  {item}
-                </li>
-              ))
-            ) : (
-              <li className="text-sm text-slate-400">No standout strengths recorded.</li>
-            )}
-          </ul>
-        </Card>
+      <div className="flex flex-col gap-4">
+        <h3 className="font-display text-lg font-semibold text-ink-light dark:text-ink-dark">
+          Question-by-Question Analysis
+        </h3>
 
-        <Card>
-          <h3 className="mb-3 font-display text-base font-semibold text-ink-light dark:text-ink-dark">
-            Areas to improve
-          </h3>
-          <ul className="flex flex-col gap-2">
-            {improvementAreas.length > 0 ? (
-              improvementAreas.map((item) => (
-                <li key={item} className="flex items-start gap-2 text-sm text-slate-600 dark:text-slate-300">
-                  <span className="mt-0.5 text-accent-warning">!</span>
-                  {item}
-                </li>
-              ))
-            ) : (
-              <li className="text-sm text-slate-400">No specific gaps flagged.</li>
-            )}
-          </ul>
-        </Card>
-      </div>
+        {(summary.answers || []).map((answer) => (
+          <Card key={answer.questionId}>
+            <div className="flex flex-col gap-3">
+              <div className="flex items-center justify-between">
+                <h4 className="font-semibold text-ink-light dark:text-ink-dark">
+                  {answer.questionText}
+                </h4>
 
-      {questionFeedback.length > 0 && (
-        <div className="flex flex-col gap-3">
-          <h3 className="font-display text-base font-semibold text-ink-light dark:text-ink-dark">
-            Question-by-question feedback
-          </h3>
-          {questionFeedback.map((item, index) => (
-            <Card key={item.questionId || index}>
-              <div className="mb-2 flex items-center justify-between gap-3">
-                <p className="text-sm font-medium text-ink-light dark:text-ink-dark">
-                  {item.question}
-                </p>
-                <Badge variant="progress">{formatScore(item.score)}</Badge>
+                <Badge variant="progress">
+                  {formatScore(answer.score)}
+                </Badge>
               </div>
-              <p className="text-sm text-slate-500 dark:text-slate-400">{item.feedback}</p>
-            </Card>
-          ))}
-        </div>
-      )}
+
+              <div>
+                <p className="text-xs font-semibold uppercase text-slate-400">
+                  Your Answer
+                </p>
+
+                <p className="text-sm text-slate-600 dark:text-slate-300">
+                  {answer.answerText}
+                </p>
+              </div>
+
+              <div>
+                <p className="text-xs font-semibold uppercase text-green-600">
+                  Strengths
+                </p>
+
+                <p className="text-sm text-slate-600 dark:text-slate-300">
+                  {answer.strengths || "No strengths provided."}
+                </p>
+              </div>
+
+              <div>
+                <p className="text-xs font-semibold uppercase text-red-500">
+                  Weaknesses
+                </p>
+
+                <p className="text-sm text-slate-600 dark:text-slate-300">
+                  {answer.weaknesses || "No weaknesses provided."}
+                </p>
+              </div>
+
+              <div>
+                <p className="text-xs font-semibold uppercase text-blue-600">
+                  Topics to Revise
+                </p>
+
+                <p className="text-sm text-slate-600 dark:text-slate-300">
+                  {answer.topicsToRevise || "No revision topics."}
+                </p>
+              </div>
+            </div>
+          </Card>
+        ))}
+      </div>
     </div>
   );
 };

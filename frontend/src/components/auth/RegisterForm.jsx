@@ -38,10 +38,11 @@ const RegisterForm = () => {
   const onSubmit = async (formValues) => {
     try {
       await register({
-        name: formValues.name,
+        fullName: formValues.name, // ✅ Changed from name to fullName
         email: formValues.email,
         password: formValues.password,
       });
+
       toast.success(MESSAGES.REGISTER_SUCCESS);
       navigate(ROUTES.LOGIN);
     } catch (error) {

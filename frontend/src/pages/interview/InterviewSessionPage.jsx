@@ -20,6 +20,7 @@ const InterviewSessionPage = () => {
   const { id } = useParams();
   const navigate = useNavigate();
   const toast = useToast();
+
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const {
@@ -40,7 +41,7 @@ const InterviewSessionPage = () => {
 
   if (loading) {
     return (
-      <PageContainer title="Interview session">
+      <PageContainer title="Interview Session">
         <div className="mx-auto flex max-w-2xl flex-col gap-4">
           <Skeleton className="h-6 w-40" />
           <Skeleton className="h-40" />
@@ -52,34 +53,43 @@ const InterviewSessionPage = () => {
 
   if (error || !interview) {
     return (
-      <PageContainer title="Interview session">
+      <PageContainer title="Interview Session">
         <EmptyState
           title="We couldn't load this interview"
           description={error?.message}
-          action={<Button onClick={refetch}>Try again</Button>}
+          action={<Button onClick={refetch}>Try Again</Button>}
         />
       </PageContainer>
     );
   }
 
   const questions = interview.questions || [];
-  const totalQuestions = questions.length;
+  const totalQuestions = interview.totalQuestions || questions.length;
+
   const currentQuestion = questions[currentIndex];
+
   const isLastQuestion = currentIndex === totalQuestions - 1;
-  const currentAnswer = answers[currentQuestion?.id] || "";
+
+  const currentAnswer = currentQuestion
+    ? answers[currentQuestion.id] || ""
+    : "";
 
   const handleAnswerChange = (text) => {
+    if (!currentQuestion) return;
     setAnswerForQuestion(currentQuestion.id, text);
   };
 
   const handleSubmitAnswer = async () => {
     if (!currentQuestion) return;
+
     setIsSubmitting(true);
+
     try {
       await interviewApi.submitAnswer(id, {
         questionId: currentQuestion.id,
-        answer: currentAnswer,
+        answerText: currentAnswer,
       });
+
       toast.success(MESSAGES.ANSWER_SUBMITTED);
 
       if (isLastQuestion) {
@@ -96,24 +106,39 @@ const InterviewSessionPage = () => {
   };
 
   return (
-    <PageContainer title={interview.title} description={interview.role}>
+    <PageContainer
+      title={interview.jobRole}
+      description={`${interview.experienceLevel} • ${interview.interviewType}`}
+    >
       <BreadcrumbBar
         items={[
-          { label: "Interviews", to: ROUTES.INTERVIEWS },
-          { label: interview.title },
+          {
+            label: "Interviews",
+            to: ROUTES.INTERVIEWS,
+          },
+          {
+            label: interview.jobRole,
+          },
         ]}
       />
 
-      {totalQuestions === 0 ? (
-        <EmptyState title="No questions available for this interview yet." />
+      {questions.length === 0 ? (
+        <EmptyState title="No questions available for this interview." />
       ) : (
         <div className="mx-auto flex max-w-2xl flex-col gap-6">
           <div className="flex items-center justify-between gap-3">
-            <InterviewProgressBar current={currentIndex} total={totalQuestions} />
+            <InterviewProgressBar
+              current={currentIndex}
+              total={totalQuestions}
+            />
+
             <InterviewTimer startedAt={startedAt} />
           </div>
 
-          <QuestionCard question={currentQuestion} index={currentIndex} />
+          <QuestionCard
+            question={currentQuestion}
+            index={currentIndex}
+          />
 
           <AnswerInput
             value={currentAnswer}
