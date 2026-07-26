@@ -1,9 +1,0 @@
-/* AI Interview Coach — Font System
-   Import once in your root (e.g. main.jsx or index.html <link>) */
-@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
-
-:root {
-  --font-display: 'Space Grotesk', 'Segoe UI', sans-serif; /* headings, logo, hero numbers */
-  --font-body: 'Inter', 'Segoe UI', sans-serif;             /* paragraphs, labels, UI text */
-  --font-mono: 'JetBrains Mono', 'Fira Code', monospace;    /* coding-round questions, code answers */
-}
