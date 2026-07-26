@@ -1,0 +1,17 @@
+export const MESSAGES = {
+  LOGIN_SUCCESS: "Welcome back.",
+  LOGIN_FAILED: "We couldn't sign you in. Check your credentials and try again.",
+  REGISTER_SUCCESS: "Account created. Sign in to continue.",
+  REGISTER_FAILED: "We couldn't create your account. Try again.",
+  LOGOUT_SUCCESS: "You've been signed out.",
+  SESSION_EXPIRED: "Your session expired. Sign in again.",
+  INTERVIEW_CREATED: "Interview created. Let's begin.",
+  INTERVIEW_CREATE_FAILED: "We couldn't create the interview. Try again.",
+  ANSWER_SUBMITTED: "Answer submitted.",
+  ANSWER_SUBMIT_FAILED: "We couldn't submit your answer. Try again.",
+  GENERIC_ERROR: "Something went wrong. Please try again.",
+  NETWORK_ERROR: "Can't reach the server. Check your connection.",
+  VALIDATION_REQUIRED: "This field is required.",
+  VALIDATION_EMAIL: "Enter a valid email address.",
+  VALIDATION_PASSWORD: "Password must be at least 8 characters.",
+};
